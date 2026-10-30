@@ -56,12 +56,11 @@
     .btn-primary { color: #041510; background: var(--accent); border-color: var(--accent); }
     .btn-secondary { background: rgba(255,255,255,.03); }
     .btn:hover { transform: translateY(-2px); }
-    .terminal { background: linear-gradient(145deg, rgba(18,31,51,.96), rgba(10,18,32,.96)); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; transform: rotate(1deg); }
-    .terminal-top { display: flex; align-items: center; gap: 7px; padding: 14px 16px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
-    .terminal-top i { width: 9px; height: 9px; border-radius: 50%; background: #ff6b6b; }
-    .terminal-top i:nth-child(2) { background: #ffc857; } .terminal-top i:nth-child(3) { background: #35d49a; }
-    .terminal-body { padding: 23px; font: .88rem/2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #c9d7eb; }
-    .terminal-body .green { color: var(--accent); } .terminal-body .blue { color: #79baff; }
+    .portrait-wrap { position: relative; width: min(100%, 370px); justify-self: end; padding: 10px; border: 1px solid rgba(53,224,189,.35); border-radius: 28px; background: linear-gradient(145deg, rgba(53,224,189,.12), rgba(85,168,255,.08)); box-shadow: var(--shadow); }
+    .portrait { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 25%; border-radius: 20px; background: #fff; }
+    .portrait-caption { position: absolute; left: 22px; right: 22px; bottom: 22px; padding: 12px 15px; border: 1px solid rgba(255,255,255,.18); border-radius: 13px; background: rgba(8,13,24,.82); backdrop-filter: blur(10px); color: var(--text); }
+    .portrait-caption strong { display: block; font-size: .92rem; }
+    .portrait-caption span { color: var(--accent); font-size: .76rem; }
     section { padding: 58px 0; scroll-margin-top: 85px; }
     .section-head { margin-bottom: 26px; }
     .section-kicker { color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
@@ -95,7 +94,7 @@
     .social-links a { color: var(--accent); }
     @media (max-width: 800px) {
       .hero { grid-template-columns: 1fr; padding: 76px 0 50px; gap: 32px; }
-      .terminal { max-width: 560px; transform: none; }
+      .portrait-wrap { justify-self: start; width: min(100%, 340px); }
       .skills-grid { grid-template-columns: repeat(2, 1fr); }
       .about-grid { grid-template-columns: 1fr; }
     }
@@ -135,16 +134,11 @@
           <a class="btn btn-secondary" href="https://www.linkedin.com/in/abdi-aziz-jama-230107440/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         </div>
       </div>
-      <div class="terminal" aria-label="Decorative terminal illustration">
-        <div class="terminal-top"><i></i><i></i><i></i><span style="margin-left:8px">learning-terminal</span></div>
-        <div class="terminal-body">
-          <div><span class="green">abdi@portfolio</span>:<span class="blue">~</span>$ whoami</div>
-          <div>Computer Science Student</div>
-          <div><span class="green">abdi@portfolio</span>:<span class="blue">~</span>$ focus</div>
-          <div>Networking</div>
-          <div>Linux &amp; Cybersecurity</div>
-          <div>Practical learning</div>
-          <div><span class="green">abdi@portfolio</span>:<span class="blue">~</span>$ <span class="green">_</span></div>
+      <div class="portrait-wrap">
+        <img class="portrait" src="profile.jpg" alt="Portrait of Abdi Aziz Jama">
+        <div class="portrait-caption">
+          <strong>Abdi Aziz Jama</strong>
+          <span>IT &amp; Cybersecurity Learner</span>
         </div>
       </div>
     </div>
