@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abdi Aziz Jama's personal portfolio — IT, networking and cybersecurity learning projects.">
+  <meta name="theme-color" content="#080d18">
+  <title>Abdi Aziz Jama | IT & Cybersecurity Portfolio</title>
+  <style>
+    :root {
+      --bg: #080d18;
+      --panel: #101a2b;
+      --panel-2: #0d1524;
+      --text: #edf4ff;
+      --muted: #a5b3c8;
+      --line: rgba(160, 184, 218, .17);
+      --accent: #35e0bd;
+      --accent-2: #55a8ff;
+      --shadow: 0 18px 50px rgba(0,0,0,.28);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% 8%, rgba(38, 115, 168, .16), transparent 28rem),
+        radial-gradient(circle at 5% 35%, rgba(25, 188, 153, .10), transparent 25rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .container { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(8,13,24,.82); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.12rem; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: .92rem; }
+    .nav-links a:hover { color: var(--accent); }
+    .menu-btn { display: none; border: 1px solid var(--line); color: var(--text); background: var(--panel); border-radius: 10px; padding: 8px 11px; }
+    .hero { padding: 100px 0 82px; display: grid; grid-template-columns: 1.35fr .65fr; gap: 50px; align-items: center; }
+    .eyebrow { display: inline-flex; gap: 9px; align-items: center; color: var(--accent); font-size: .83rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 16px var(--accent); }
+    h1 { margin: 18px 0 16px; font-size: clamp(2.65rem, 6vw, 4.9rem); line-height: 1.04; letter-spacing: -.065em; }
+    h1 span { color: var(--accent); }
+    .hero p { color: var(--muted); font-size: 1.08rem; max-width: 650px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 18px; border-radius: 11px; border: 1px solid var(--line); font-weight: 700; transition: .2s ease; }
+    .btn-primary { color: #041510; background: var(--accent); border-color: var(--accent); }
+    .btn-secondary { background: rgba(255,255,255,.03); }
+    .btn:hover { transform: translateY(-2px); }
+    .terminal { background: linear-gradient(145deg, rgba(18,31,51,.96), rgba(10,18,32,.96)); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; transform: rotate(1deg); }
+    .terminal-top { display: flex; align-items: center; gap: 7px; padding: 14px 16px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
+    .terminal-top i { width: 9px; height: 9px; border-radius: 50%; background: #ff6b6b; }
+    .terminal-top i:nth-child(2) { background: #ffc857; } .terminal-top i:nth-child(3) { background: #35d49a; }
+    .terminal-body { padding: 23px; font: .88rem/2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #c9d7eb; }
+    .terminal-body .green { color: var(--accent); } .terminal-body .blue { color: #79baff; }
+    section { padding: 58px 0; scroll-margin-top: 85px; }
+    .section-head { margin-bottom: 26px; }
+    .section-kicker { color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    h2 { margin: 6px 0 0; font-size: clamp(1.8rem, 4vw, 2.5rem); letter-spacing: -.045em; }
+    .section-intro { color: var(--muted); max-width: 720px; margin: 10px 0 0; }
+    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+    .card { background: linear-gradient(145deg, rgba(16,26,43,.94), rgba(12,20,34,.94)); border: 1px solid var(--line); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); }
+    .card p { color: var(--muted); margin: 0; }
+    .fact { padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .fact:last-child { border-bottom: 0; padding-bottom: 0; }
+    .fact strong { display: block; font-size: .92rem; }
+    .fact span { color: var(--muted); font-size: .9rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .skill { padding: 18px; border: 1px solid var(--line); background: rgba(16,26,43,.72); border-radius: 14px; }
+    .skill strong { display: block; margin-bottom: 5px; }
+    .skill span { color: var(--muted); font-size: .84rem; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .project { display: flex; flex-direction: column; min-height: 220px; }
+    .project-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .project-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; color: var(--accent); background: rgba(53,224,189,.1); font-size: 1.25rem; }
+    .status { color: var(--accent); border: 1px solid rgba(53,224,189,.25); background: rgba(53,224,189,.08); padding: 4px 9px; border-radius: 999px; font-size: .72rem; font-weight: 700; white-space: nowrap; }
+    .project h3 { margin: 0 0 8px; font-size: 1.15rem; }
+    .project p { color: var(--muted); font-size: .92rem; margin: 0 0 16px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; }
+    .tag { font-size: .74rem; color: #c3d4e9; background: rgba(117,151,196,.1); border: 1px solid var(--line); padding: 4px 8px; border-radius: 7px; }
+    .contact-box { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .contact-box p { color: var(--muted); max-width: 600px; }
+    footer { padding: 28px 0; margin-top: 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .social-links { display: flex; gap: 16px; }
+    .social-links a { color: var(--accent); }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding: 76px 0 50px; gap: 32px; }
+      .terminal { max-width: 560px; transform: none; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(100% - 30px, 1100px); }
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 71px; left: 0; right: 0; padding: 18px 22px; flex-direction: column; align-items: flex-start; background: #0b1322; border-bottom: 1px solid var(--line); }
+      .nav-links.open { display: flex; }
+      .project-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      section { padding: 42px 0; }
+      .contact-box { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 380px) { .skills-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#home">ABDI<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container hero" id="home">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> IT &amp; Cybersecurity Learner</div>
+        <h1>Hi, I'm<br><span>Abdi Aziz Jama.</span></h1>
+        <p>I am a Computer Science student building my knowledge in IT, networking and cybersecurity through study and practical labs.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">Explore my projects <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-secondary" href="https://github.com/abdiazizjama209-sketch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/abdi-aziz-jama-230107440/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div class="terminal" aria-label="Decorative terminal illustration">
+        <div class="terminal-top"><i></i><i></i><i></i><span style="margin-left:8px">learning-terminal</span></div>
+        <div class="terminal-body">
+          <div><span class="green">abdi@portfolio</span>:<span class="blue">~</span>$ whoami</div>
+          <div>Computer Science Student</div>
+          <div><span class="green">abdi@portfolio</span>:<span class="blue">~</span>$ focus</div>
+          <div>Networking</div>
+          <div>Linux &amp; Cybersecurity</div>
+          <div>Practical learning</div>
+          <div><span class="green">abdi@portfolio</span>:<span class="blue">~</span>$ <span class="green">_</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head"><div class="section-kicker">01 / About</div><h2>About me</h2></div>
+        <div class="about-grid">
+          <div class="card">
+            <p>My name is Abdi Aziz Jama. I am a Computer Science student interested in networking, Linux and cybersecurity. I use practical exercises and personal labs to strengthen my understanding. I am continuing to learn and develop my technical skills.</p>
+          </div>
+          <div class="card">
+            <div class="fact"><strong>Field</strong><span>Computer Science / Information Technology</span></div>
+            <div class="fact"><strong>Current focus</strong><span>Networking and cybersecurity fundamentals</span></div>
+            <div class="fact"><strong>Learning approach</strong><span>Hands-on labs and guided study</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head"><div class="section-kicker">02 / Skills</div><h2>Tools &amp; learning areas</h2><p class="section-intro">These are areas I am studying and practising. This list does not represent professional certifications or expert-level experience.</p></div>
+        <div class="skills-grid">
+          <div class="skill"><strong>Networking</strong><span>CCNA topics, VLANs, routing and switching labs</span></div>
+          <div class="skill"><strong>Linux</strong><span>Kali Linux and command-line fundamentals</span></div>
+          <div class="skill"><strong>Cybersecurity</strong><span>Security labs, SIEM concepts and Wazuh learning</span></div>
+          <div class="skill"><strong>Virtualisation</strong><span>VirtualBox and isolated practice environments</span></div>
+          <div class="skill"><strong>Web development</strong><span>PHP, Laravel and basic web project work</span></div>
+          <div class="skill"><strong>Databases</strong><span>MySQL and database fundamentals</span></div>
+          <div class="skill"><strong>Version control</strong><span>GitHub repositories and project work</span></div>
+          <div class="skill"><strong>Tools</strong><span>Packet Tracer and TryHackMe learning rooms</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head"><div class="section-kicker">03 / Projects</div><h2>Practical learning</h2><p class="section-intro">A selection of study areas and lab work. Items marked “In progress” are still being developed.</p></div>
+        <div class="project-grid">
+          <article class="card project">
+            <div class="project-top"><div class="project-icon">⌘</div><span class="status">Practice lab</span></div>
+            <h3>Networking labs</h3>
+            <p>Practising networking concepts such as VLANs, trunking, inter-VLAN routing, DHCP and access control lists.</p>
+            <div class="tags"><span class="tag">CCNA topics</span><span class="tag">Packet Tracer</span></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><div class="project-icon">⌁</div><span class="status">Practice lab</span></div>
+            <h3>Kali Linux &amp; DVWA</h3>
+            <p>Building an isolated VirtualBox environment to learn web application security in a controlled lab.</p>
+            <div class="tags"><span class="tag">Kali Linux</span><span class="tag">DVWA</span><span class="tag">VirtualBox</span></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><div class="project-icon">◈</div><span class="status">In progress</span></div>
+            <h3>Wazuh learning lab</h3>
+            <p>Learning SIEM and security monitoring concepts, with Wazuh as a practical learning tool.</p>
+            <div class="tags"><span class="tag">Wazuh</span><span class="tag">SIEM</span><span class="tag">Security monitoring</span></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><div class="project-icon">▤</div><span class="status">Coursework</span></div>
+            <h3>Task Management System</h3>
+            <p>Working with a group on a Laravel-based task management coursework project.</p>
+            <div class="tags"><span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">MySQL</span></div>
+          </article>
+        </div>
+        <div class="actions" style="margin-top:22px">
+          <a class="btn btn-secondary" href="https://github.com/abdiazizjama209-sketch?tab=repositories" target="_blank" rel="noopener noreferrer">View GitHub repositories ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head"><div class="section-kicker">04 / Contact</div><h2>Let's connect</h2></div>
+        <div class="card contact-box">
+          <div><strong>Find me online</strong><p>Connect with me on GitHub to see my code and repositories, or on LinkedIn to view my professional profile.</p></div>
+          <div class="actions" style="margin-top:0">
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/abdi-aziz-jama-230107440/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a class="btn btn-secondary" href="https://github.com/abdiazizjama209-sketch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Abdi Aziz Jama. Built with HTML, CSS &amp; JavaScript.</span>
+      <div class="social-links"><a href="https://github.com/abdiazizjama209-sketch" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/abdi-aziz-jama-230107440/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+    </div>
+  </footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+      menuBtn.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Open navigation');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
